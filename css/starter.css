@@ -110,6 +110,7 @@ footer{
 }
 
 /*CODE START*/
+/* Styling for the default view*/
 @keyframes logoAnimation {
   0%   {width: 25px; opacity: 0;}
   100% {width: 475px; opacity: 1;}
@@ -127,29 +128,29 @@ header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-items:center;
+  align-content: space-around;
+  /* justify-items:stretch; */
 }
 .card{
-  display: flex;
-  flex-direction: column;
-  flex-basis: 450px;
-  /* flex-shrink: 0; */
-  align-self: center;
-  border-radius: 40px 40px 0 0;
+  /* display: flex; */
+  /* flex-direction: row; */
+  width: 450px;
+  flex-grow: 1;
+  /* flex: 0 0 450px; */
+  border-radius: 50px 50px 0 0;
 }
 .card > header
 {
   background: #288088;
   border: solid 2px #45ADAD;
-  padding: 20px;
-  border-radius: 40px 40px 0 0;
+  padding: 20px 0px;
+  border-radius: 50px 50px 0 0;
 }
 .gallery{
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  flex-basis: auto;
 }
 
 .gallery img{
@@ -162,17 +163,21 @@ header{
 a, a:visited, a:hover, a:active {
   color: blue;
 }
-
+/* Styling for larger views (900px or larger) */
 @media only screen and (min-width: 900px) {
+  #logo{
+    animation: logoAnimation;
+  }
   .pricing{
     flex-direction: row;
     justify-content: center;
-    align-items: flex-end;
+    /* align-items: flex-end; */
   }
   .card{
     justify-content:flex-start;
     flex-basis: 275px;
   }
+  /*Style card titles to be on the left.*/
   .card>header{
     flex-direction: row;
     justify-content: flex-start;
@@ -184,17 +189,19 @@ a, a:visited, a:hover, a:active {
   body>header:first-of-type{
     flex-direction:row;
     justify-content: space-between;
-  position: sticky;
+    position: sticky;
     top: 0px;
   }
   
 }
+/* Disabling animations when reduce motion is enabled */ 
 @media (prefers-reduced-motion:reduce) {
   #logo{
     /* animation: none; */
     animation: logoAnimation;
   }
 }
+/* Styling print portrait view */
 @media print {
   .gallery img{
     display: none;
@@ -203,24 +210,23 @@ a, a:visited, a:hover, a:active {
     font-family: Arial, Helvetica;
     background-image: none;
   }
-  .card{
-    align-self:flex-end;
-  }
-  
+  /* Align all cards to baseline */ 
   .pricing{
     flex-direction: row;
     justify-content: center;
-    align-content: flex-end;
   }
   .card{
+    align-self:flex-end;
     border: solid 2px #45ADDD;
     flex-basis: 325px;
-/*Use flex shrink to make flex items adapt to screen size*/
+  /*Use flex shrink to make flex items adapt to screen size*/
     flex-shrink: 1;
   }
+  /* Append emoji to the second li of every card's ul */
   .card>ul>li:nth-child(2)::after{
     content: "👍";
   }
+   /* Disable animation in print mode*/ 
   #logo{
     animation: logoAnimation;
   }
