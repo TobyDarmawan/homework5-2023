@@ -132,11 +132,8 @@ header{
   /* justify-items:stretch; */
 }
 .card{
-  /* display: flex; */
-  /* flex-direction: row; */
   width: 450px;
   flex-grow: 1;
-  /* flex: 0 0 450px; */
   border-radius: 50px 50px 0 0;
 }
 .card > header
@@ -146,6 +143,7 @@ header{
   padding: 20px 0px;
   border-radius: 50px 50px 0 0;
 }
+/* Gallery images should be centered and wrapped.*/
 .gallery{
   display: flex;
   flex-direction: row;
@@ -154,12 +152,11 @@ header{
 }
 
 .gallery img{
-  /* display: flex; */
   border: solid 10px #50C7C7;
   margin: 10px; 
   width: 300px;
-  /* height: 100%; */
 }
+/* Prevent links from changing colors after being visited.*/
 a, a:visited, a:hover, a:active {
   color: blue;
 }
@@ -168,8 +165,8 @@ a, a:visited, a:hover, a:active {
   .pricing{
     flex-direction: row;
     justify-content: center;
-    /* align-items: flex-end; */
   }
+  /*Align text content to the left*/
   .card{
     justify-content:flex-start;
     flex-basis: 275px;
@@ -179,10 +176,12 @@ a, a:visited, a:hover, a:active {
     flex-direction: row;
     justify-content: flex-start;
   }
+  /* Make nav links horizontal*/
   .nav_links{
     display: flex;
     flex-direction:row;
   }
+  /*Make nav bar sticky*/
   body>header:first-of-type{
     flex-direction:row;
     justify-content: space-between;
@@ -199,6 +198,7 @@ a, a:visited, a:hover, a:active {
 }
 /* Styling print portrait view */
 @media print {
+  /* Hide gallery*/
   .gallery, #gallery{
     display: none;
   }
@@ -207,26 +207,27 @@ a, a:visited, a:hover, a:active {
     font-family: Arial, Helvetica;
     background-image: none;
   }
-  /* Align all cards to baseline */ 
   .pricing{
     flex-direction: row;
     justify-content: center;
   }
   .card{
+    /* Align all cards to baseline */ 
     align-self:flex-end;
     border: solid 2px #45ADDD;
     flex-basis: 325px;
-  /*Use flex shrink to make flex items adapt to screen size*/
+    /*Use flex shrink to make flex items adapt to screen size*/
     flex-shrink: 1;
   }
   /* Append emoji to the second li of every card's ul */
   .card>ul>li:nth-child(2)::after{
     content: "👍";
   }
-   /* Disable animation in print mode*/ 
+  /* Disable animation in print mode*/ 
   #logo{
     animation: logoAnimation;
   }
+  /*Make all nav links horizontal and spaced evenly*/
   nav{
     width: 100%;
   }
