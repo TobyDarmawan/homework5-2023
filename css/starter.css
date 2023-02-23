@@ -165,9 +165,6 @@ a, a:visited, a:hover, a:active {
 }
 /* Styling for larger views (900px or larger) */
 @media only screen and (min-width: 900px) {
-  #logo{
-    animation: logoAnimation;
-  }
   .pricing{
     flex-direction: row;
     justify-content: center;
@@ -197,15 +194,15 @@ a, a:visited, a:hover, a:active {
 /* Disabling animations when reduce motion is enabled */ 
 @media (prefers-reduced-motion:reduce) {
   #logo{
-    /* animation: none; */
     animation: logoAnimation;
   }
 }
 /* Styling print portrait view */
 @media print {
-  .gallery img{
+  .gallery, #gallery{
     display: none;
   }
+
   body{
     font-family: Arial, Helvetica;
     background-image: none;
@@ -236,6 +233,6 @@ a, a:visited, a:hover, a:active {
   .nav_links{
     display: flex;
     flex-direction:row;
-    justify-content:space-between;
+    justify-content:space-evenly;
   }
 }
